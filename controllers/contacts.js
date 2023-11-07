@@ -1,12 +1,13 @@
-const { Contact } = require("../models/contact");
-const { HttpError, ctrlWrapper } = require("../helpers");
+import { Contact } from "../models/contact.js";
+import { HttpError } from "../helpers/HttpError.js";
+import { ctrlWrapper } from "../helpers/ctrlWrapper.js";
 
-const listContacts = async (_, res) => {
+export const listContacts = async (_, res) => {
   const result = await Contact.find({}, "-createdAt -updatedAt");
   res.status(200).json(result);
 };
 
-const getContactById = async (req, res) => {
+export const getContactById = async (req, res) => {
   const { id } = req.params;
   const result = await Contact.findById(id);
   if (!result) {
@@ -15,12 +16,12 @@ const getContactById = async (req, res) => {
   res.status(200).json(result);
 };
 
-const addContact = async (req, res) => {
+export const addContact = async (req, res) => {
   const result = await Contact.create(req.body);
   res.status(201).json(result);
 };
 
-const updateContact = async (req, res) => {
+export const updateContact = async (req, res) => {
   const { id } = req.params;
   const result = await Contact.findByIdAndUpdate(id, req.body, { new: true });
   if (!result) {
@@ -29,7 +30,7 @@ const updateContact = async (req, res) => {
   res.status(200).json(result);
 };
 
-const updateStatusContact = async (req, res) => {
+export const updateStatusContact = async (req, res) => {
   const { id } = req.params;
   const result = await Contact.findByIdAndUpdate(id, req.body, { new: true });
   if (!result) {
@@ -38,7 +39,7 @@ const updateStatusContact = async (req, res) => {
   res.status(200).json(result);
 };
 
-const removeContact = async (req, res) => {
+export const removeContact = async (req, res) => {
   const { id } = req.params;
   const result = await Contact.findByIdAndDelete(id);
   if (!result) {
@@ -47,7 +48,8 @@ const removeContact = async (req, res) => {
   res.status(200).json({ message: "contact deleted" });
 };
 
-module.exports = {
+
+export default {
   listContacts: ctrlWrapper(listContacts),
   getContactById: ctrlWrapper(getContactById),
   addContact: ctrlWrapper(addContact),
