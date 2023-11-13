@@ -10,13 +10,13 @@ const userSchema = new Schema(
     password: {
       type: String,
       minlength: 6,
-      requared: [true, 'Set password for user'],
+      required: [true, 'Set password for user'],
     },
     email: {
       type: String,
       match: emailRegexp,
       unique: true,
-      requared: [true, 'Email is required'],
+      required: [true, 'Email is required'],
     },
     subscription: {
       type: String,

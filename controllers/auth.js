@@ -3,6 +3,9 @@ import { HttpError } from '../helpers/HttpError.js';
 import { ctrlWrapper } from '../helpers/ctrlWrapper.js';
 import jwt from 'jsonwebtoken';
 import bcryptjs from 'bcryptjs';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const { SECRET_KEY } = process.env;
 
@@ -75,11 +78,9 @@ const logout = async (req, res) => {
 const updateSubscription = async (req, res) => {
   const { subscription } = req.body;
   const { _id } = req.user;
-  await User.findByIdAndUpdate(_id, { subscription }, { new: true });
+  const result = await User.findByIdAndUpdate(_id, { subscription }, { new: true });
 
-  res.json({
-    subscription,
-  });
+  res.json(result);
 };
 
 export default {
