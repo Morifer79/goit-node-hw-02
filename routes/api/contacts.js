@@ -1,38 +1,42 @@
-import express from "express";
-import ctrl from "../../controllers/contacts.js";
-import {validateBody} from "../../middlewares/validateBody.js";
-import { validateField } from "../../middlewares/validateField.js";
-import { isValidId } from "../../middlewares/isValidId.js";
-import { schemas } from "../../models/contact.js";
+import express from 'express';
+import ctrl from '../../controllers/contacts.js';
+import { validateBody } from '../../middlewares/validateBody.js';
+import { validateField } from '../../middlewares/validateField.js';
+import { isValidId } from '../../middlewares/isValidId.js';
+import { schemas } from '../../models/contact.js';
+import { authenticate } from '../../middlewares/authenticate.js';
 
 const router = express.Router();
 
-router.get("/", ctrl.listContacts);
+router.get('/', authenticate, ctrl.listContacts);
 
-router.get("/:id", isValidId, ctrl.getContactById);
+router.get('/:id', authenticate, isValidId, ctrl.getContactById);
 
 router.post(
-	"/",
-	validateField,
+  '/',
+  authenticate,
+  validateField,
   validateBody(schemas.addSchema),
   ctrl.addContact
 );
 
 router.put(
-	"/:id",
-	isValidId,
-	validateField,
+  '/:id',
+  authenticate,
+  isValidId,
+  validateField,
   validateBody(schemas.addSchema),
   ctrl.updateContact
 );
 
 router.patch(
-	"/:id/favorite",
+  '/:id/favorite',
+  authenticate,
   isValidId,
   validateBody(schemas.updateFavoriteSchema),
   ctrl.updateStatusContact
 );
 
-router.delete("/:id", isValidId, ctrl.removeContact);
+router.delete('/:id', authenticate, isValidId, ctrl.removeContact);
 
 export default router;
