@@ -41,7 +41,10 @@ const loginSchema = Joi.object({
 });
 
 const updateSubscriptionSchema = Joi.object({
-  subscription: Joi.string().valid(...subscrptionOptions),
+  subscription: Joi.string()
+    .valid(...subscrptionOptions)
+    .required()
+    .messages({ 'any.required': 'missing field subscription' }),
 });
 
 export const schemas = {
