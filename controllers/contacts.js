@@ -13,13 +13,6 @@ export const listContacts = async (req, res) => {
   res.json(result);
 };
 
-export const getContactsByFavorite = async (req, res) => {
-  const { _id: owner } = req.user;
-  const { favorite = true} = req.query;
-  const result = await Contact.find({owner}, '', { favorite });
-  res.json(result);
-};
-
 export const getContactById = async (req, res) => {
   const { id } = req.params;
   const result = await Contact.findById(id);
@@ -65,7 +58,6 @@ export const removeContact = async (req, res) => {
 export default {
   listContacts: ctrlWrapper(listContacts),
   getContactById: ctrlWrapper(getContactById),
-  getContactsByFavorite: ctrlWrapper(getContactsByFavorite),
   addContact: ctrlWrapper(addContact),
   updateContact: ctrlWrapper(updateContact),
   updateStatusContact: ctrlWrapper(updateStatusContact),
