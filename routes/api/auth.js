@@ -6,9 +6,17 @@ import ctrl from '../../controllers/auth.js';
 
 const router = express.Router();
 
-router.post('/register', validateBody(schemas.registerSchema), ctrl.register);
+router.post(
+  '/register',
+  validateBody(schemas.registerSchema),
+  ctrl.register
+);
 
-router.post('/login', validateBody(schemas.loginSchema), ctrl.login);
+router.post(
+  '/login',
+  validateBody(schemas.loginSchema),
+  ctrl.login
+);
 
 router.get('/current', authenticate, ctrl.getCurrent);
 

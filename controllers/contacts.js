@@ -15,10 +15,8 @@ export const listContacts = async (req, res) => {
 
 export const getContactsByFavorite = async (req, res) => {
   const { _id: owner } = req.user;
-  const { favorite = true } = req.query;
-  const result = await Contact.find({ owner }, '', {
-    favorite,
-  });
+  const { favorite = true} = req.query;
+  const result = await Contact.find({owner}, '', { favorite });
   res.json(result);
 };
 
