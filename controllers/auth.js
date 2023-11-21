@@ -1,7 +1,6 @@
 import { User } from '../models/user.js';
 import { HttpError } from '../helpers/HttpError.js';
 import { ctrlWrapper } from '../helpers/ctrlWrapper.js';
-import * as url from 'url';
 import fs from 'fs/promises';
 import gravatar from 'gravatar';
 import Jimp from 'jimp';
@@ -12,8 +11,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const { SECRET_KEY } = process.env;
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
-const avatarsDir = path.join(__dirname, '../', 'public', 'avatars');
+const avatarsDir = path.resolve('public', 'avatars');
 
 export const register = async (req, res) => {
   const { email, password } = req.body;
@@ -109,7 +107,7 @@ const updateAvatar = async (req, res) => {
   const filename = `${_id}_${originalname}`;
   const resultUpload = path.join(avatarsDir, filename);
   await fs.rename(tempUpload, resultUpload);
-  const avatarURL = path.join('avatars', filename);
+  const avatarURL = path.join('avatars', resultUpload);
   await User.findByIdAndUpdate(_id, { avatarURL });
 
   res.json({
