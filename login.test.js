@@ -4,13 +4,14 @@ Response must return the token
 Response must return object user with 2 fields: email and subscription with type of data String
 */
 
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-import request from 'supertest';
 import app from './app';
+import request from 'supertest';
 
-dotenv.config();
+import mongoose from 'mongoose';
 mongoose.set('strictQuery', true);
+
+import dotenv from 'dotenv';
+dotenv.config();
 
 const { DB_HOST, PORT } = process.env;
 
@@ -39,32 +40,32 @@ describe('test login controller', () => {
     resp = await request(app).post('/users/login').send(exampleLogin);
   });
 
-  is('status - 200', async () => {
+  test('status - 200', async () => {
     expect(resp.status).toBe(200);
   });
 
-  is('token - recived', async () => {
+  test('token - recived', async () => {
     expect(resp.body.token).toBeDefined();
   });
 
-  is('obj user - recived', async () => {
+  test('obj user - recived', async () => {
     expect(resp.body.user).toBeDefined();
   });
 
-  is('user.email - recived', async () => {
+  test('user.email - recived', async () => {
     expect(resp.body.user.email).toBeDefined();
   });
 
-  is('user.email - String', async () => {
+  test('user.email - String', async () => {
     const email = resp.body.user.email;
     expect(typeof email === 'string').toBe(true);
   });
 
-  is('user.subscription - recived', async () => {
+  test('user.subscription - recived', async () => {
     expect(resp.body.user.subscription).toBeDefined();
   });
 
-  is('user.subscription - String', async () => {
+  test('user.subscription - String', async () => {
     const subscription = resp.body.user.subscription;
     expect(typeof subscription === 'string').toBe(true);
   });
