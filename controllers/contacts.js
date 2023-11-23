@@ -14,8 +14,9 @@ export const listContacts = async (req, res) => {
 };
 
 export const getContactById = async (req, res) => {
+  const { _id: owner } = req.user;
   const { id } = req.params;
-  const result = await Contact.findById(id);
+  const result = await Contact.findById(id, owner);
   if (!result) {
     throw HttpError(404);
   }
@@ -29,8 +30,11 @@ export const addContact = async (req, res) => {
 };
 
 export const updateContact = async (req, res) => {
+  const { _id: owner } = req.user;
   const { id } = req.params;
-  const result = await Contact.findByIdAndUpdate(id, req.body, { new: true });
+  const result = await Contact.findByIdAndUpdate(owner, id, req.body, {
+    new: true,
+  });
   if (!result) {
     throw HttpError(404);
   }
@@ -38,8 +42,11 @@ export const updateContact = async (req, res) => {
 };
 
 export const updateStatusContact = async (req, res) => {
+  const { _id: owner } = req.user;
   const { id } = req.params;
-  const result = await Contact.findByIdAndUpdate(id, req.body, { new: true });
+  const result = await Contact.findByIdAndUpdate(owner, id, req.body, {
+    new: true,
+  });
   if (!result) {
     throw HttpError(404);
   }
@@ -47,8 +54,9 @@ export const updateStatusContact = async (req, res) => {
 };
 
 export const removeContact = async (req, res) => {
+  const { _id: owner } = req.user;
   const { id } = req.params;
-  const result = await Contact.findByIdAndDelete(id);
+  const result = await Contact.findByIdAndDelete(id, owner);
   if (!result) {
     throw HttpError(404);
   }
