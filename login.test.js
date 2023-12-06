@@ -16,8 +16,8 @@ dotenv.config();
 const { DB_HOST, PORT } = process.env;
 
 const exampleLogin = {
-  email: 'eva@mail.com',
-  password: '123456',
+  email: 'mivetit751@mcenb.com',
+  password: '1234567',
 };
 
 describe('test login controller', () => {
