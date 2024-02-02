@@ -1,31 +1,27 @@
-## GoIT Node.js Course Template Homework
+# ℕ𝕠𝕕𝕖 𝕙𝕠𝕞𝕖𝕨𝕠𝕣𝕜 𝕗𝕣𝕠𝕞 𝕤𝕖𝕔𝕠𝕟𝕕 𝕥𝕙𝕣𝕠𝕦𝕘𝕙 𝕤𝕚𝕩𝕥𝕙.  
 
-Виконайте форк цього репозиторію для виконання домашніх завдань (2-6)
-Форк створить репозиторій на вашому http://github.com
+## 𝔽𝕖𝕒𝕥𝕦𝕣𝕖𝕤 𝕒𝕟𝕕 𝕋𝕖𝕔𝕙𝕟𝕠𝕝𝕠𝕘𝕚𝕖𝕤 ᎓  
 
-Додайте ментора до колаборації
+<img src="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg" title="Node" alt="Node" width="40" height="40"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/npm/npm-original-wordmark.svg" title="npm" alt="npm" width="40" height="40"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/mongodb/mongodb-original.svg" title="mongoDB" alt="mongoDB" width="40" height="40"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" title="Docker" alt="Docker" width="40" height="40"/>
+<img src="https://www.svgrepo.com/show/354202/postman-icon.svg" title="Postman" alt="Postman" width="40" height="40"/>
+<img src="https://github.com/devicons/devicon/blob/master/icons/vscode/vscode-original-wordmark.svg" title="VSCode" alt="VSCode" width="40" height="40"/>  
 
-Для кожної домашньої роботи створюйте свою гілку.
+Work with database, queries, validation and tests.  
 
-- hw02
-- hw03
-- hw04
-- hw05
-- hw06
+※ bcryptjs: to hash and encrypt sensitive data before saving it to the database.  
+※ gravatar: to work with avatars.  
+※ jimp: for image editing.  
+※ joi: for schema description and data validation.  
+※ jsonwebtoken: to create (sign) and validate (verify) tokens used for user authentication/authorization.  
+※ mongoose: for asynchronous modeling of MongoDB database objects.  
+※ nodemailer: for sending e-mails.  
+※ jest and supertest: for testing.  
+※ mongodb compass: graphical client for working with MongoDB databases.  
 
-Кожна нова гілка для др повинна робитися з master
-
-Після того, як ви закінчили виконувати домашнє завдання у своїй гілці, необхідно зробити пулл-реквест (PR). Потім додати ментора для рев'ю коду. Тільки після того, як ментор заапрувить PR, ви можете виконати мердж гілки з домашнім завданням у майстер.
-
-Уважно читайте коментарі ментора. Виправте зауваження та зробіть коміт у гілці з домашнім завданням. Зміни підтягнуться у PR автоматично після того, як ви відправите коміт з виправленнями на github
-Після виправлення знову додайте ментора на рев'ю коду.
-
-- При здачі домашньої роботи є посилання на PR
-- JS-код чистий та зрозумілий, для форматування використовується Prettier
-
-### Команди:
-
-- `npm start` &mdash; старт сервера в режимі production
-- `npm run start:dev` &mdash; старт сервера в режимі розробки (development)
-- `npm run lint` &mdash; запустити виконання перевірки коду з eslint, необхідно виконувати перед кожним PR та виправляти всі помилки лінтера
-- `npm lint:fix` &mdash; та ж перевірка лінтера, але з автоматичними виправленнями простих помилок
+## Email me :
+Questions, suggestions, help:  
+<a href="mailto:cyber-morifer@proton.me"><img src="https://badgen.net/badge/📧 email:/cyber-morifer@proton.me/yellow?icon=email" alt="Mail Badge"/></a>
